@@ -1,11 +1,8 @@
 import  mongoose, { Schema } from 'mongoose'
 
 const testSchema = new Schema({
-  _id: {
-
-  },
   name: {
-    type: string,
+    type: String,
     required: true
   }
 })
