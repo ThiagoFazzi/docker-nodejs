@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  app:
+    image: node:alpine
+    volumes:
+      - ./:/app
+    working_dir: /app
+    depends_on: 
+      - mongoDB
+    environment: 
+      NODE_ENV: development
+    ports:
+      - ${PORT}:${PORT}
+    command: yarn dev
+
+  mongoDB:
+    image: mongo
+    expose:
+      - 27017
+    volumes:
+      - ./data/db:/data/db
