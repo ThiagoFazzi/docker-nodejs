@@ -105,3 +105,6 @@ dist
 
 #mongoDB data
 /data
+
+#mongoDB-test data
+/data-test
