@@ -6,7 +6,8 @@ chai.use(chaiHttp)
 chai.should()
 
 describe("Tests", () => {
-  describe("GET /", () => {
+  
+  describe("Get all records", () => {
     it("shuld get all tests record", (done) => {
       chai.request(app)
         .get('/test/all')
@@ -17,4 +18,17 @@ describe("Tests", () => {
         })
     })
   })
+
+  describe("Get record by Id", () => {
+    it("should get specific record by provide Id", (done) => {
+      chai.request(app)
+        .get('/test/5e1d80a5c78d04004d9952a9')
+        .end((err, res) => {
+          res.should.have.status(200)
+          res.body.should.be.a('object')
+          done()
+        })
+    })
+  })
+
 })

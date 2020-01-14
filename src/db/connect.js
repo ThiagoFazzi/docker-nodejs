@@ -8,7 +8,7 @@ const connectToDb = async () => {
   
   try {
     await Mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, { useNewUrlParser: true })
-    console.log('MongoDB successfully connected')
+    return true
   }
   catch (err) {
     console.log(err.message)
@@ -16,5 +16,3 @@ const connectToDb = async () => {
 }
 
 export default connectToDb
-
-
