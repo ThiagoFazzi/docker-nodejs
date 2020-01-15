@@ -5,5 +5,29 @@
   "main": "index.js",
   "repository": "git@github.com:ThiagoFazzi/docker-nodejs.git",
   "author": "Thiago Fazzi <lopesfazzithiago@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js",
+    "test": "export NODE_ENV=Test && mocha --recursive --require @babel/register src/tests/**/*.spec.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.2"
+  }
 }
