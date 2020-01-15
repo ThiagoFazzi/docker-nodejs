@@ -11,11 +11,24 @@ app.use(bodyParser.json())
 app.use('/test', testController)
 
 if(connectToDb()) {
-  app.listen(process.env.PORT, () => { 
-    console.log(`Server running on Port: ${process.env.PORT}`)
-  })
+
+  if(process.env.NODE_ENV == 'Test'){
+
+    app.listen(process.env.TEST_PORT, () => { 
+      console.log(`Server running on Port: ${process.env.TEST_PORT}`)
+    })
+
+  } else {
+
+    app.listen(process.env.PORT, () => { 
+      console.log(`Server running on Port: ${process.env.PORT}`)
+    })
+  
+  }
+
 } else {
-  console.log('Error!!!')
+    console.log('Error!!!')
 }
+
 
 export default app
